@@ -1,0 +1,31 @@
+<script>
+  var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+  var konamiIndex = 0;
+
+  document.addEventListener('keydown', function(event) {
+    if (event.keyCode === konamiCode[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === konamiCode.length) {
+        // Konami code was entered correctly
+        konamiIndex = 0;
+        showFunnyPicture();
+      }
+    } else {
+      konamiIndex = 0;
+    }
+  });
+
+  function showFunnyPicture() {
+    var img = document.createElement("img");
+    img.src = "https://cdn.vox-cdn.com/thumbor/Si2spWe-6jYnWh8roDPVRV7izC4=/0x0:1192x795/1400x788/filters:focal(596x398:597x399)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg";
+    img.style.position = "fixed";
+    img.style.top = "50%";
+    img.style.left = "50%";
+    img.style.transform = "translate(-50%, -50%)";
+    img.style.zIndex = "1000";
+    img.style.maxWidth = "90%";
+    img.style.maxHeight = "90%";
+    document.body.appendChild(img);
+  }
+</script>
+
